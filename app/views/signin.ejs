@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+<head>
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/lib/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="/css/styles.css" rel="stylesheet" />
+<title>
+        <%=title %>
+</title>
+
+</head>
+
+<body>
+
+<script type="text/javascript" src="/lib/angular/angular.js"></script>
+<script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+<script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
+<script type="text/javascript" src="/lib/angularUtils-pagination/dirPagination.js"></script>
+
+<script type="text/javascript" src="/example/example.client.module.js"></script>
+
+<script type="text/javascript" src="/example/controllers/example.client.controller.js"></script>
+<script type="text/javascript" src="/example/config/example.client.routes.js"></script>
+
+<script type="text/javascript" src="/users/users.client.module.js"></script>
+<script type="text/javascript" src="/users/services/authentication.client.service.js"></script>
+
+<script type="text/javascript" src="/application.js"></script>
+
+
+    <% for(var i in messages) { %>
+    <span class= "error">
+        <div class="flash"><%= messages[i] %></div>
+    </span>
+    <% } %>
+
+
+<form action="/signin" method="post" role="form" name = "userSignIn" id="sign" novalidate>
+    <div class="well">
+        <div class="form-group">
+            <div class="username">
+                <label>Username:</label>
+                <input type="text" class="input-small" name="username" id = "username" ng-model="username" placeholder="Input user Name" required ng-pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$ "  required/>
+            </div>
+            <span class= "error" ng-show="userSignUp.username.$error.required">
+                 Please enter an Username.
+            </span>
+            <div>
+                <label>Password:</label>
+                <input type="password" class="input-small" name="password" id = "password" ng-model="password" ng-minlength="7" placeholder="Input password" required/>
+            </div>
+            <span class= "error" ng-show="userSignUp.password.$error.required">
+                 Please enter an Password.
+            </span>
+             <span class= "error" ng-show="userSignUp.password.$error.minlength">
+                 Password must be more then 6 symbols.
+            </span>
+            <p>
+            <div>
+                <input type="submit" id="SignIn" value="Sign In" class="btn btn-primary" ng-disabled="userSignIn.$invalid"/>
+                <input type="cancel" value="Cancel" class="btn btn-primary" onclick="document.location.href = '/'"/>
+            </div>
+            </p>
+
+        </div>
+    </div>
+</form>
+</body>
+</html>
