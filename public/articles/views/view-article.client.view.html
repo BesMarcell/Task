@@ -1,0 +1,48 @@
+<!-- The article view -->
+
+<section ng-include="'example/views/example.client.view.html'"></section>
+<div class="panel-info">
+    <div class="panel-heading">
+    <section data-ng-controller="ArticlesController" data-ng-init="findOne()">
+
+        <div data-ng-show="authentication.user._id == article.creator._id">
+            <a href="/#!/articles/{{article._id}}/edit" class="btn btn-primary">edit</a>
+            <a href="#" data-ng-click="delete();" class="btn btn-danger">delete</a>
+        </div>
+
+        <h1>Title:
+        <span data-ng-bind="article.title"></span>
+        </h1>
+        <!-- Show the editing buttons to the article creator -->
+
+        <small>
+            <em>Created on</em>
+            <em data-ng-bind="article.created | date:'mediumDate'"></em>
+            <em>by</em>
+            <em data-ng-bind="article.creator.fullName"></em>
+        </small>
+        <p>
+            <a href="{{article.website}}">{{article.website}}</a>
+        </p>
+        <p>
+            Short link <a href="{{article.website}}">{{article.websiteShort}}</a>
+        </p>
+
+        <b>
+            DESCRIPTION:
+        </b>
+        <p data-ng-bind="article.content"></p>
+
+        <p> TAGS: <a href="#!/tags/{{tag}}" ng-repeat="tag in article.tags">{{tag}} </a></p>
+
+        <div data-ng-show="authentication.user._id == article.creator._id">
+            <p><b>the number of transitions: </b>{{article.linkFollows}}</p>
+        </div>
+
+        <div>
+            <button class="btn btn-primary" ng-click="cancelEdit()">Back</button>
+        </div>
+
+    </section>
+    </div>
+</div>

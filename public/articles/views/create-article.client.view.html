@@ -1,0 +1,54 @@
+<!-- The create article view -->
+
+<section ng-include="'example/views/example.client.view.html'"></section>
+<div class="panel-body">
+	<section data-ng-controller="ArticlesController">
+		<h1>New Article</h1>
+		<!-- The new article form -->
+		<form data-ng-submit="" novalidate>
+			<div>
+				<label for="title">Title</label>
+				<div>
+					<input type="text" data-ng-model="title" id="title" placeholder="Title" required>
+				</div>
+			</div>
+			<div>
+				<label for="website">Website</label>
+				<div>
+					<input type="text" data-ng-model="website" id="website" placeholder="Website" required>
+				</div>
+			</div>
+			<div>
+				<label for="content">Content</label>
+				<div>
+					<textarea data-ng-model="content" id="content" cols="30" rows="10" placeholder="Content"></textarea>
+				</div>
+			</div>
+			<div>
+				<div>
+					<label for="tags">Add tag (separated by commas)</label>
+					<div>
+						<input type="text" data-ng-model="tags" id="tags" placeholder="Content">
+						<button class="btn btn-primary" ng-click="addTag(tags)" >+</button>
+					</div>
+				</div>
+
+				<ul>
+					<div>
+						<li href="" ng-repeat="tag in arrTags">
+							<button class="btn btn-primary btn-xs" ng-click="delTag(tag)" >-</button>
+							{{tag}}
+						</li>
+					</div>
+				</ul>
+
+				<input type="submit" class="btn btn-primary" value="Create" id = "CreateArticle" ng-click="create()">
+				<button class="btn btn-primary" ng-click="cancelEdit()">Cancel</button>
+			</div>
+			<!-- The error message element -->
+			<div data-ng-show="error">
+				<strong data-ng-bind="error"></strong>
+			</div>
+		</form>
+	</section>
+</div>

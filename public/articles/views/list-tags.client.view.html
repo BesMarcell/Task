@@ -1,0 +1,50 @@
+<!-- The list articles view -->
+
+<section ng-include="'example/views/example.client.view.html'"></section>
+<div class="panel panel-success">
+	<div class="panel-heading">
+		<div class="container border-container">
+		List of referances by TAG {{tagSel}}
+		<section data-ng-controller="ArticlesController" data-ng-init="findByTag()">
+			<h1>TAGs</h1>
+
+			<table class="table table-stripped table-hover">
+				<thead>
+				<tr>
+					<th ng-click="sort('title')">Site title
+						<span class="glyphicon sort-icon" ng-show= "sortKey=='title'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+					</th>
+					<th>Short link</th>
+					<th ng-click="sort('created')">Created
+						<span class="glyphicon sort-icon" ng-show= "sortKey=='created'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+					</th>
+					<th ng-click="sort('creator.fullName')">Creater
+						<span class="glyphicon sort-icon" ng-show= "sortKey=='creator.fullName'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+					</th>
+					<th>Description</th>
+					<th>Tags</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr dir-paginate="article in tagSel |itemsPerPage:4|orderBy:sortKey:reverse">
+					<td><a data-ng-href="#!/articles/{{article._id}}" class="btn btn-default btn-xs" data-ng-bind="article.title"></a></td>
+					<td><a href="{{article.website}}" ng-click="hrefCount(article)">{{article.websiteShort}}</a></td>
+					<td>{{article.created | date:'medium'}}</td>
+					<td>{{article.creator.fullName}}</td>
+					<td>{{article.content}}</td>
+					<td><a href="#!/tags/{{tag}}" class="btn btn-info btn-xs tag" ng-repeat="tag in article.tags|orderBy:tag">{{tag}}</a></td>
+				</tr>
+				</tbody>
+				<dir-pagination-controls
+						max-size="5"
+						direction-links="true"
+						boundary-links="true">
+				</dir-pagination-controls>
+			</table>
+
+			<!-- If there are no articles in the list, suggest the user's create a new article -->
+			<button class="btn btn-primary" ng-click="cancelEdit()">Back</button>
+		</section>
+		</div>
+	</div>
+</div>

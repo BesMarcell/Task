@@ -1,19 +1,37 @@
 {
-  "name": "short_web_links_server",
-  "version": "1.0.0",
-  "description": "Task about MEAN and short links for sites",
+  "name": "MEAN",
+  "version": "0.0.6",
   "dependencies": {
-		"express": "~4.8.8",
-		"morgan": "~1.3.0",
-		"compression": "~1.0.11",
-		"body-parser": "~1.8.0",
-		"method-override": "~2.2.0",
-		"express-session": "~1.7.6",
-		"ejs": "~1.0.0",
-		"connect-flash": "~0.1.1",
-		"mongoose": "~3.8.15",
-		"passport": "~0.2.1",
-		"passport-local": "~1.0.0"
-
-	}
+    "body-parser": "~1.8.0",
+    "compression": "~1.0.11",
+    "connect-flash": "~0.1.1",
+    "ejs": "~1.0.0",
+    "express": "~4.8.8",
+    "express-session": "~1.7.6",
+    "method-override": "~2.2.0",
+    "mongoose": "~3.8.15",
+    "morgan": "~1.3.0",
+    "passport": "~0.2.1",
+    "passport-local": "~1.0.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-concurrent": "~1.0.0",
+    "grunt-contrib-csslint": "~0.2.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-env": "~0.4.1",
+    "grunt-karma": "~0.9.0",
+    "grunt-mocha-test": "~0.11.0",
+    "grunt-node-inspector": "^0.4.1",
+    "grunt-nodemon": "~0.3.0",
+    "grunt-protractor-runner": "~1.1.4",
+    "http-server": "^0.8.5",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-firefox-launcher": "~0.1",
+    "karma-jasmine": "^0.2.3",
+    "should": "~4.0.4",
+    "supertest": "~0.13.0"
+  }
 }

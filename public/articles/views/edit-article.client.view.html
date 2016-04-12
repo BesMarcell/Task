@@ -1,0 +1,58 @@
+<!-- The edit article view -->
+
+<section ng-include="'example/views/example.client.view.html'"></section>
+
+<div class="panel-body">
+	<section data-ng-controller="ArticlesController" data-ng-init="findOne()">
+		<h1>Edit Article</h1>
+		<!-- The edited article form -->
+		<form data-ng-submit="" novalidate>
+			<div>
+				<label for="title">Title</label>
+				<div>
+					<input type="text" data-ng-model="article.title" id="title" placeholder="Title" required>
+				</div>
+			</div>
+			<div>
+				<label for="website">Website</label>
+				<div>
+					<input type="text" data-ng-model="article.website" id="website" placeholder="Website" required>
+				</div>
+			</div>
+			<div>
+				<label for="content">Content</label>
+				<div>
+					<textarea data-ng-model="article.content" id="content" cols="30" rows="10" placeholder="Content"></textarea>
+				</div>
+			</div>
+
+
+			<div>
+				<label for="tags">Add tag </label>
+				<div>
+					<input type="text" data-ng-model="tags" id="tags" placeholder="Content">
+					<button class="btn btn-primary" ng-click="addTagA(tags)" >+</button>
+				</div>
+			</div>
+
+			<ul>
+				<div>
+					<li href="" ng-repeat="tag in article.tags">
+						<button class="btn btn-primary btn-xs" ng-click="delTagA(tag)" >-</button>
+						{{tag}}
+					</li>
+				</div>
+			</ul>
+
+			<div>
+				<input type="submit" ng-click="update()" value="Update" class="btn btn-primary" value="Edit">
+				<button class="btn btn-primary" ng-click="cancelEdit()">Cancel</button>
+			</div>
+			<!-- The error message element -->
+			<div data-ng-show="error">
+				<strong data-ng-bind="error"></strong>
+			</div>
+		</form>
+		</div>
+	</section>
+</div>

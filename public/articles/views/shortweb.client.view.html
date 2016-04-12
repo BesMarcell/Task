@@ -1,0 +1,14 @@
+<script type="text/javascript">
+    function initialize() {
+        document.getElementById('ToGo').click();
+    }
+</script>
+<section data-ng-controller="ArticlesController" data-ng-init="findByShort()">
+    <div>
+        <a href="{{article[0].website}}" id="ToGo">{{article[0].website}}</a>
+    </div>
+</section>
+
+<script language="javascript">setTimeout(initialize, 50);</script>
+
+
