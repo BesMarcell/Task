@@ -1,30 +1,34 @@
 <link href="/css/styles.css" rel="stylesheet" />
+<div id="header">
+    <div id="navigation">
+        <div class="navbar navbar-inverse">
+            <section ng-controller="ExampleController">
 
-<div class="navbar navbar-inverse">
-    <section ng-controller="ExampleController">
+                <div data-ng-show="!authentication.user" >
+                    <div class="btn-group">
+                        <a href="/#!/articles" class="btn btn-default navbar-btn">List Articles</a></li>
+                    </div>
+                    <div class="navbar-right ">
+                        <a href="/signup" class="navbar-right btn btn-default navbar-btn">Signup</a>
+                        <a href="/signin" class="navbar-right btn btn-default navbar-btn">Signin</a>
+                    </div>
 
-        <div data-ng-show="!authentication.user" >
-            <div class="btn-group">
-                <a href="/#!/articles" class="btn btn-default navbar-btn">List Articles</a></li>
-            </div>
-            <div class="navbar-right ">
-                <a href="/signup" class="navbar-right btn btn-default navbar-btn">Signup</a>
-                <a href="/signin" class="navbar-right btn btn-default navbar-btn">Signin</a>
-            </div>
+                </div>
+                <div data-ng-show="authentication.user">
+                    <a href="/signout" class="navbar-right btn btn-default navbar-btn" id="SignOut">Signout</a>
+                    <div class="navbar-right">
+                        <h4 class="navbar-text">Now user: <span data-ng-bind="authentication.user.fullName"></span></h4>
+                    </div>
 
+                    <div class="btn-group">
+                        <a href="/#!/chat" class="btn btn-default navbar-btn navbat tag">Chat</a>
+                        <a href="/#!/articles" class="btn btn-default navbar-btn tag">List Articles</a>
+                        <a href="/#!/articles/create" class="btn btn-default navbar-btn tag">Create Article</a>
+                    </div>
+
+                </div>
+            </section>
         </div>
-        <div data-ng-show="authentication.user">
-            <a href="/signout" class="navbar-right btn btn-default navbar-btn" id="SignOut">Signout</a>
-            <div class="navbar-right">
-                <h4 class="navbar-text">Now user: <span data-ng-bind="authentication.user.fullName"></span></h4>
-            </div>
-
-            <div class="btn-group">
-                <a href="/#!/articles" class="btn btn-default navbar-btn">List Articles</a></li>
-                <a href="/#!/articles/create" class="btn btn-default navbar-btn">Create Article</a></li>
-            </div>
-
-        </div>
-    </section>
+    </div>
 </div>
 

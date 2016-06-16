@@ -6,7 +6,7 @@ describe('Articles E2E Tests:', function() {
 
     // Test the new article page
     describe('New Article Page', function() {
-        beforeEach(module('mean'));
+        //beforeEach(module('mean'));
         it('Should not be able to create a new article', function() {
             // Load the new article page
             browser.get('http://localhost:3000/#!/articles/create');
@@ -23,7 +23,7 @@ describe('Articles E2E Tests:', function() {
     });
 
     describe('List of Articles will load', function() {
-        beforeEach(module('mean'));
+        //beforeEach(module('mean'));
         it('Should not be able to create a new article', function() {
             // Load the new article page
             browser.get('http://localhost:3000/#!/articles/');
@@ -53,7 +53,7 @@ describe('Articles E2E Tests:', function() {
     });
 */
     describe('login page', function() {
-        beforeEach(module('mean'));
+        //beforeEach(module('mean'));
         var params = browser.params;
 
         it('should login successfully', function() {

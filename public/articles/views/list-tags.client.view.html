@@ -1,13 +1,13 @@
 <!-- The list articles view -->
 
 <section ng-include="'example/views/example.client.view.html'"></section>
-<div class="panel panel-success">
+<div id="content" class="panel panel-success">
 	<div class="panel-heading">
 		<div class="container border-container">
 		List of referances by TAG {{tagSel}}
 		<section data-ng-controller="ArticlesController" data-ng-init="findByTag()">
 			<h1>TAGs</h1>
-
+			<div class="table-responsive">
 			<table class="table table-stripped table-hover">
 				<thead>
 				<tr>
@@ -41,6 +41,7 @@
 						boundary-links="true">
 				</dir-pagination-controls>
 			</table>
+			</div>
 
 			<!-- If there are no articles in the list, suggest the user's create a new article -->
 			<button class="btn btn-primary" ng-click="cancelEdit()">Back</button>

@@ -7,3 +7,67 @@ span.error { color: red; font-weight: bold; }
 .navbar-text { margin-right: 10px; color: green}
 
 .tag {margin-right: 5px;}
+
+
+@media screen and (max-width: 768px) {
+    #wrapper {
+        width: 100%;
+    }
+    #header,#footer,#navigation {
+        width: 100%;
+    }
+    #content,#sidebar {
+        /*background-color: #dedede;*/
+        font-size: 0.1em
+        width: 100%;
+    }
+
+    table { font-size: 0.9em; }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    #wrapper {
+        width: 100%;
+    }
+    #header,#footer,#navigation {
+        width: 100%;
+    }
+    #content,#sidebar {
+       /* background-color: #decede;*/
+        font-size: 0.1em
+    width: 100%;
+    }
+
+    table { font-size: 0.9em; }
+}
+
+@media screen and (min-width: 993px) and (max-width: 1199px) {
+    #wrapper {
+        width: 100%;
+    }
+    #header,#footer,#navigation {
+        width: 100%;
+    }
+    #content,#sidebar {
+        /*background-color: #c1e2b3;*/
+        font-size: 0.1em
+    width: 100%;
+    }
+
+    table { font-size: 1em; }
+}
+@media screen and (min-width: 1200px) {
+    #wrapper {
+        width: 100%;
+    }
+    #header,#footer,#navigation {
+        width: 100%;
+    }
+    #content,#sidebar {
+        /*background-color: #00d4b4;*/
+        font-size: 0.1em
+    width: 100%;
+    }
+
+    table { font-size: 1.1em; }
+}

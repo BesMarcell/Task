@@ -1,8 +1,8 @@
 <!-- The list articles view -->
 
 <section ng-include="'example/views/example.client.view.html'"></section>
-	<div class="panel-body">
 
+<div id="content" class="panel-body">
 	<div class="row">
 		<div class="col-sm-10 col-md-6">
 			<section data-ng-controller="ArticlesController" data-ng-init="find()">
@@ -10,16 +10,16 @@
 					<form class="form-inline">
 						<div class="form-group">
 							<label>Search</label>
-							<input type="text" ng-model="search.tags" class="form-comtrol" placeholder="search by tag">
+							<input type="text" ng-model="search.tags" class="form-comtrol" placeholder="search by tag" autofocus>
 						</div>
 
 					</form>
 
-
 					<h1>List of Sites</h1>
 
 						<!-- The list of article -->
-						<table class="table table-stripped table-hover">
+					<div class="table-responsive">
+						<table class="table table-stripped table-hover table-condensed">
 							<thead>
 								<tr>
 									<th ng-click="sort('title')">Site title
@@ -38,7 +38,7 @@
 							</thead>
 							<tbody>
 								<tr dir-paginate="article in articles |filter:search|itemsPerPage:4|orderBy:sortKey:reverse">
-									<td><a data-ng-href="#!/articles/{{article._id}}" class="btn btn-default btn-xs" data-ng-bind="article.title"></a></td>
+									<td><a data-ng-href="#!/articles/{{article._id}}" class="btn btn-default btn-xs" data-ng-bind="article.title" id="ArticleBtn"></a></td>
 									<td><a href="#!/{{article.websiteShort}}" ng-click="hrefCount(article)">http://localhost:3000/#!/{{article.websiteShort}}</a></td>
 									<!-- <td><a ng-click="hrefCount(article)">{{article.websiteShort}}</a></td>-->
 									<td>{{article.created | date:'medium'}}</td>
@@ -53,13 +53,11 @@
 									boundary-links="true">
 							</dir-pagination-controls>
 						</table>
-
+					</div>
 					<!-- If there are no articles in the list, suggest the user's create a new article -->
 					<div data-ng-hide="!articles || articles.length">
 						No articles yet, why don't you <a href="/#!/articles/create">create one</a>?
 					</div>
-
-
 				</div>
 
 			</section>
